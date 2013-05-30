@@ -16,7 +16,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class MainPageController {
@@ -40,7 +42,7 @@ public class MainPageController {
 		model.addAttribute("uploaded_file", uploadform.getFile().getOriginalFilename());
 		Project result = new Project();
 		try {
-			ProjectFile project = mppconverter.ConvertFile(uploadform.getFile(), ConverterService.MPP_TYPE);
+			ProjectFile project = mppconverter.ConvertFile(uploadform.getFile().getInputStream(), ConverterService.MPP_TYPE);
 			model.addAttribute("project_info", project.getProjectHeader().getProjectTitle());
 			result = new Project(project);
 		} catch (MPXJException ex){
@@ -51,6 +53,24 @@ public class MainPageController {
 		
 		return result;
 	}
+	
+	@RequestMapping(value="/convertmpp", method=RequestMethod.POST)
+	@ResponseBody
+	public Project convertmpp(@RequestParam("file") MultipartFile mpfile){
+		Project result = new Project();
+		try {
+			ProjectFile project = mppconverter.ConvertFile(mpfile.getInputStream(), ConverterService.MPP_TYPE);
+			result = new Project(project);
+		} catch (MPXJException ex){
+			ex.printStackTrace();
+			logger.error("MPXJ Error :: " + ex.getMessage());
+		} catch (IOException ex){
+			logger.error("IOException Error :: " + ex.getMessage());
+		}
+		
+		return result;
+	}
+	
 	
 	private void fillDefault(Model model){
 		model.addAttribute("title", "MPP/X Converter in Heroku");
