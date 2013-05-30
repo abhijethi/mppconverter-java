@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 
 <!doctype html>
@@ -42,6 +43,18 @@
 <div class="container topcontainer">
 	<div class="row-fluid">
 		<h1>${subtitle}</h1>
+		
+		<c:if test="${uploaded_file != null}">
+			<h4>You have uploaded ${uploaded_file }</h4>
+		</c:if>
+		
+		<c:url value="/save" var="savefiles" />
+		<form:form method="post" action="${savefiles }"
+			modelattribute="uploadform" enctype="multipart/form-data">
+			<label>Select File to Upload</label>
+			<input type="file" name="file" />
+			<input type="submit" value="upload" class="btn btn-primary" />
+		</form:form>
 	</div>
 </div>
 
