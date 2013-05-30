@@ -48,6 +48,10 @@
 			<h4>You have uploaded ${uploaded_file }</h4>
 		</c:if>
 		
+		<c:if test="${project_info != null}">
+			<h4>Project ::  ${project_info }</h4>
+		</c:if>
+
 		<c:url value="/save" var="savefiles" />
 		<form:form method="post" action="${savefiles }"
 			modelattribute="uploadform" enctype="multipart/form-data">
