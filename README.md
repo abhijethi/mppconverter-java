@@ -1,5 +1,7 @@
 # MPP/X Converter to JSON
 
+[![Build Status](https://api.travis-ci.org/smulyono/mppconverter-java.png)](https://api.travis-ci.org/smulyono/mppconverter-java)
+
         * Using MPXJ Library
         * Spring MVC - REST
 
