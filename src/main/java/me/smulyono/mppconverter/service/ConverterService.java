@@ -6,6 +6,8 @@ import java.io.InputStream;
 import me.smulyono.mppconverter.model.Project;
 import net.sf.mpxj.MPXJException;
 import net.sf.mpxj.ProjectFile;
+import net.sf.mpxj.Resource;
+import net.sf.mpxj.Task;
 import net.sf.mpxj.mpp.MPPReader;
 import net.sf.mpxj.mpx.MPXReader;
 import net.sf.mpxj.mpx.MPXWriter;
@@ -51,10 +53,23 @@ public class ConverterService {
 		ObjectMapper mapper = new ObjectMapper();
 		Project result = mapper.readValue(jparser, Project.class);
 		
-		logger.info(" result >>> " + result.getProjectTitle());
-		// 
-		
 		ProjectFile project = new ProjectFile();
+
+		// Resource 
+		for (me.smulyono.mppconverter.model.Resource res : result.getResources()){
+			Resource newresource = project.addResource();
+			newresource.setName(res.getName());
+		}
+		
+		// Task
+		for (me.smulyono.mppconverter.model.Task tsk : result.getTasks()){
+			Task newtask= project.addTask();
+			newtask.setName(tsk.getName());
+			newtask.setActive(tsk.isActive());
+			newtask.setMilestone(tsk.isMilestone());
+		}
+		
+		
 		ProjectWriter writer = new MPXWriter();
 		writer.write(project, filedestination);
 	}

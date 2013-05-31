@@ -13,6 +13,7 @@ public class Assignment implements java.io.Serializable {
 	private Integer resourceUniqueId;
 	private Integer resourceId;
 	
+	public Assignment(){}
 	public Assignment(ResourceAssignment assignment){
 		// get the unique ID
 		this.setTaskUniqueid(assignment.getTaskUniqueID());

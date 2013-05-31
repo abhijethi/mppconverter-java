@@ -14,6 +14,8 @@ public class Resource implements java.io.Serializable {
 	// unique ID
 	private Integer uniqueId;
 	
+	public Resource(){}
+	
 	public Resource(net.sf.mpxj.Resource resource){
 		this.setId(resource.getID());
 		if (resource.getName() == null){

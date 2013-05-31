@@ -88,7 +88,8 @@ public class MainPageController {
 	
 	
 	@RequestMapping(value="/creatempx", method=RequestMethod.POST)
-	public void creatempx(@RequestBody String rawJson, Model model){
+	public void creatempx(@RequestBody String rawJson, Model model, HttpServletResponse resp){
+		CorsActivation(resp);
 		// parse the first 'json_raw=';
 		rawJson = rawJson.replaceFirst("json_raw=","");
 		try {
@@ -97,6 +98,7 @@ public class MainPageController {
 			logger.error("IOException Error :: " + ex.getMessage());
 		}
 		model.addAttribute("subtitle", "Generated MPX File Can be found at /tmp/result.mpx");
+		logger.info(">>> MPX FILE GENERATED!");
 	}
 	
 	private void fillDefault(Model model){
