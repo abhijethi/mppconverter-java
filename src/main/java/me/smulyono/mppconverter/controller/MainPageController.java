@@ -2,6 +2,8 @@ package me.smulyono.mppconverter.controller;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletResponse;
+
 import me.smulyono.mppconverter.model.FileUploadForm;
 import me.smulyono.mppconverter.model.Project;
 import me.smulyono.mppconverter.service.ConverterService;
@@ -26,6 +28,14 @@ public class MainPageController {
 	
 	@Autowired
 	ConverterService mppconverter;
+	
+    /*
+     * To allow CORS 
+     */
+    private void CorsActivation(HttpServletResponse resp){
+		resp.addHeader("Access-Control-Allow-Origin", "*");
+    }
+	
 	
 	@RequestMapping(value="/")
 	public String IndexPage(Model model) {
@@ -56,7 +66,8 @@ public class MainPageController {
 	
 	@RequestMapping(value="/convertmpp", method=RequestMethod.POST)
 	@ResponseBody
-	public Project convertmpp(@RequestParam("file") MultipartFile mpfile){
+	public Project convertmpp(@RequestParam("file") MultipartFile mpfile, HttpServletResponse resp){
+		CorsActivation(resp);
 		Project result = new Project();
 		try {
 			ProjectFile project = mppconverter.ConvertFile(mpfile.getInputStream(), ConverterService.MPP_TYPE);
