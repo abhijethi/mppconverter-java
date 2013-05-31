@@ -1,6 +1,7 @@
 package me.smulyono.mppconverter.controller;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,12 +11,15 @@ import me.smulyono.mppconverter.service.ConverterService;
 import net.sf.mpxj.MPXJException;
 import net.sf.mpxj.ProjectFile;
 
+import org.codehaus.jackson.JsonFactory;
+import org.codehaus.jackson.JsonParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -82,6 +86,18 @@ public class MainPageController {
 		return result;
 	}
 	
+	
+	@RequestMapping(value="/creatempx", method=RequestMethod.POST)
+	public void creatempx(@RequestBody String rawJson, Model model){
+		// parse the first 'json_raw=';
+		rawJson = rawJson.replaceFirst("json_raw=","");
+		try {
+			mppconverter.CreateFile(rawJson, "/tmp/result.mpx");
+		} catch (IOException ex){
+			logger.error("IOException Error :: " + ex.getMessage());
+		}
+		model.addAttribute("subtitle", "Generated MPX File Can be found at /tmp/result.mpx");
+	}
 	
 	private void fillDefault(Model model){
 		model.addAttribute("title", "MPP/X Converter in Heroku");
