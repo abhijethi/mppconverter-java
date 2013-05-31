@@ -4,10 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.StringEscapeUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import me.smulyono.mppconverter.controller.MainPageController;
 import net.sf.mpxj.ProjectFile;
 
 public class Project implements java.io.Serializable{
+	static Logger logger = LoggerFactory.getLogger(Project.class); 
 	/**
 	 * 
 	 */
@@ -59,8 +63,8 @@ public class Project implements java.io.Serializable{
 	 * @param project
 	 */
 	private void fillProjectInfo(ProjectFile project){
-		this.setProjectTitle(StringEscapeUtils.escapeJava(project.getProjectHeader().getProjectTitle()));
-		this.setPublisher(StringEscapeUtils.escapeJava(project.getProjectHeader().getAuthor()));
+		this.setProjectTitle(StringEscapeUtils.escapeEcmaScript(project.getProjectHeader().getProjectTitle()));
+		this.setPublisher(StringEscapeUtils.escapeEcmaScript(project.getProjectHeader().getAuthor()));
 	}
 	
 	public String getProjectTitle() {

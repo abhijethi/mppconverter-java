@@ -17,7 +17,7 @@ public class Task implements java.io.Serializable {
 	private Number percentageComplete;
 	
 	public Task(net.sf.mpxj.Task task){
-		this.setName(StringEscapeUtils.escapeJava(task.getName()));
+		this.setName(StringEscapeUtils.escapeEcmaScript(task.getName()));
 		this.setId(task.getID());
 		this.setUniqueId(task.getUniqueID());
 		this.setMilestone(task.getMilestone());

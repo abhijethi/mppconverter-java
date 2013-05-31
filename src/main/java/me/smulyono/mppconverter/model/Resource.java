@@ -20,10 +20,10 @@ public class Resource implements java.io.Serializable {
 		if (resource.getName() == null){
 			this.setName("Unassigned Resource");
 		} else {
-			this.setName(StringEscapeUtils.escapeJava(resource.getName()));
+			this.setName(StringEscapeUtils.escapeEcmaScript(resource.getName()));
 		}
 		this.setUniqueId(resource.getUniqueID());
-		this.setType(StringEscapeUtils.escapeJava(resource.getType().name()));
+		this.setType(StringEscapeUtils.escapeEcmaScript(resource.getType().name()));
 		this.setStdRate(resource.getStandardRate().getAmount());
 	}
 	
