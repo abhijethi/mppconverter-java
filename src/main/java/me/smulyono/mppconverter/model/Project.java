@@ -3,6 +3,8 @@ package me.smulyono.mppconverter.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringEscapeUtils;
+
 import net.sf.mpxj.ProjectFile;
 
 public class Project implements java.io.Serializable{
@@ -57,8 +59,8 @@ public class Project implements java.io.Serializable{
 	 * @param project
 	 */
 	private void fillProjectInfo(ProjectFile project){
-		this.setProjectTitle(project.getProjectHeader().getProjectTitle());
-		this.setPublisher(project.getProjectHeader().getAuthor());
+		this.setProjectTitle(StringEscapeUtils.escapeJava(project.getProjectHeader().getProjectTitle()));
+		this.setPublisher(StringEscapeUtils.escapeJava(project.getProjectHeader().getAuthor()));
 	}
 	
 	public String getProjectTitle() {

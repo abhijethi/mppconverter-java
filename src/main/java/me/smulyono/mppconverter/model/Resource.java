@@ -1,5 +1,7 @@
 package me.smulyono.mppconverter.model;
 
+import org.apache.commons.lang3.StringEscapeUtils;
+
 public class Resource implements java.io.Serializable {
 	/**
 	 * 
@@ -18,10 +20,10 @@ public class Resource implements java.io.Serializable {
 		if (resource.getName() == null){
 			this.setName("Unassigned Resource");
 		} else {
-			this.setName(resource.getName());
+			this.setName(StringEscapeUtils.escapeJava(resource.getName()));
 		}
 		this.setUniqueId(resource.getUniqueID());
-		this.setType(resource.getType().name());
+		this.setType(StringEscapeUtils.escapeJava(resource.getType().name()));
 		this.setStdRate(resource.getStandardRate().getAmount());
 	}
 	

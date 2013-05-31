@@ -1,5 +1,7 @@
 package me.smulyono.mppconverter.model;
 
+import org.apache.commons.lang3.StringEscapeUtils;
+
 public class Task implements java.io.Serializable {
 	/**
 	 * 
@@ -15,7 +17,7 @@ public class Task implements java.io.Serializable {
 	private Number percentageComplete;
 	
 	public Task(net.sf.mpxj.Task task){
-		this.setName(task.getName());
+		this.setName(StringEscapeUtils.escapeJava(task.getName()));
 		this.setId(task.getID());
 		this.setUniqueId(task.getUniqueID());
 		this.setMilestone(task.getMilestone());
