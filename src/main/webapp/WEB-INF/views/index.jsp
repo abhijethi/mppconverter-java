@@ -40,7 +40,7 @@
     </div>
 </div>
 
-<div class="container topcontainer">
+<div class="container topcontainer" ng-app="mpp">
 	<div class="row-fluid">
 		<h1>${subtitle}</h1>
 		
@@ -59,10 +59,11 @@
 			<input type="file" name="file" />
 			<input type="submit" value="upload" class="btn btn-primary" />
 		</form:form>
-	</div>
+	</div>		
 </div>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>

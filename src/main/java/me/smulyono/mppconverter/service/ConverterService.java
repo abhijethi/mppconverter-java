@@ -1,5 +1,6 @@
 package me.smulyono.mppconverter.service;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -14,9 +15,6 @@ import net.sf.mpxj.mpx.MPXWriter;
 import net.sf.mpxj.reader.ProjectReader;
 import net.sf.mpxj.writer.ProjectWriter;
 
-import org.codehaus.jackson.JsonFactory;
-import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -45,14 +43,7 @@ public class ConverterService {
 		return project;
 	}
 	
-	public void CreateFile(String jsonRaw, String filedestination) throws IOException{
-		// Parse JSON
-		JsonFactory jFactory = new JsonFactory();
-		JsonParser jparser = jFactory.createJsonParser(jsonRaw);
-		
-		ObjectMapper mapper = new ObjectMapper();
-		Project result = mapper.readValue(jparser, Project.class);
-		
+	public File CreateFile(Project result, String filedestination) throws IOException{
 		ProjectFile project = new ProjectFile();
 
 		// Resource 
@@ -69,8 +60,10 @@ public class ConverterService {
 			newtask.setMilestone(tsk.isMilestone());
 		}
 		
-		
+		// Pass back the file
+		File newfile = new File(filedestination);
 		ProjectWriter writer = new MPXWriter();
-		writer.write(project, filedestination);
+		writer.write(project, newfile);
+		return newfile;
 	}
 }
