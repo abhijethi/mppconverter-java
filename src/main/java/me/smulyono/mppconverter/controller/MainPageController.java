@@ -114,7 +114,7 @@ public class MainPageController {
 		CorsActivation(resp);
 
 		Map<String, String> retval = new HashMap<String, String>();
-		model.addAttribute("title", "Convert To MPP Project File");
+		model.addAttribute("title", "Convert To MPX Project File");
 		model.addAttribute("returnURL", sforce.createObjectURL(projectid));
 		
 		// Get the project information
@@ -147,7 +147,7 @@ public class MainPageController {
 			if (projectid != null){
 				String generatedurl;
 				try {
-					generatedurl = sforce.saveAttachments("mpp file", newfile, projectid);
+					generatedurl = sforce.saveAttachments("mpx file", newfile, projectid);
 					if (generatedurl != null){
 						retval.put("attachfile", "success");
 						model.addAttribute("success", "New Project File has been added!");

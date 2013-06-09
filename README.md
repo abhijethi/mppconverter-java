@@ -31,9 +31,9 @@ OR
 	
 	* heroku create
 	
-	* heroku add:config OAUTH_CLIENT_KEY <sfdc customer key>
+	* heroku config:add OAUTH_CLIENT_KEY=<sfdc customer key>
 	
-	  heroku add:config OAUTH_CLIENT_SECRET <sfdc customer secret>
+	  heroku config:add OAUTH_CLIENT_SECRET=<sfdc customer secret>
 	  
 	* git push heroku master
  
@@ -47,6 +47,13 @@ Live working instance [here](https://glacial-bayou-4282.herokuapp.com)
 Simple Java / Spring MVC application to convert MPP/X files into JSON. This java application can also be tested / hosted in Heroku.
 
 This application is built for [cloudspokes challenge](http://www.cloudspokes.com/challenges/2287/), where this application will act as REST endpoint. The client (Force.com) can submit POST request to either generate JSON file or MPP/X file. 
+
+## Demo
+
+[Video - showing how to import project from Salesforce which communicate to this Java Application](http://www.screencast.com/t/zOxUZ65dM1dN)
+
+[Video - showing how to crete project file (mpx only) from Salesforce Object; do OAuth to the java application project and posted the file back to Salesforce Record] () 
+
 
 ### Supported API
 
