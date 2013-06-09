@@ -225,11 +225,11 @@
 					<systemProperties>
 						<systemProperty>
 							<name>OAUTH_CLIENT_KEY</name>
-							<value>3MVG9y6x0357Hled8wrpOENh4AJBkZiggWqIEU4j8aYlydJm2HX4RCoNBkrS8lzbxAiHGVVlgD_JuI13Q9.lC</value>
+							<value>[put_customer_key_here_from_sfdc]</value>
 						</systemProperty>
 						<systemProperty>
 							<name>OAUTH_CLIENT_SECRET</name>
-							<value>2103768037992969425</value>
+							<value>[put_customer_secret_here_from_sfdc]</value>
 						</systemProperty>
 					</systemProperties>
 				</configuration>
