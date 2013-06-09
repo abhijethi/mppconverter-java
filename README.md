@@ -1,6 +1,6 @@
 # MPP/X Converter to JSON
 
-[![Build Status](https://api.travis-ci.org/smulyono/mppconverter-java.png)](https://api.travis-ci.org/smulyono/mppconverter-java)
+[![Build Status](https://api.travis-ci.org/smulyono/mppconverter-java.png)](https://travis-ci.org/smulyono/mppconverter-java)
 
         * Using MPXJ Library
         * Spring MVC - REST
@@ -8,12 +8,14 @@
 
 ## Getting Started
 
-	* mvn clean package
+    * mvn clean package
 
-__under jetty configuration, we can add our OAUTH_CLIENT_KEY and OAUTH_CLIENT_SECRET into the
-system properties (see pom.xml -- jetty plugin configuration); By default the application will look into system environment variable 
+_under jetty configuration, we can add our **OAUTH_CLIENT_KEY and OAUTH_CLIENT_SECRET** into the
+system properties (see pom.xml -- jetty plugin configuration)._
+
+_By default the application will look into system environment variable 
 if those environment cannot be found then it will look into system properties. This is usefull for development
-purposes without having to setup the OS environment variables__
+purposes without having to setup the OS environment variables_
 
 	* mvn jetty:run
 
