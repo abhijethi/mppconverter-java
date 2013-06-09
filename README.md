@@ -54,7 +54,7 @@ Overall Architecture View [https://www.lucidchart.com/publicSegments/view/51b4e4
 
 [Video - showing how to import project from Salesforce which communicate to this Java Application](http://www.screencast.com/t/zOxUZ65dM1dN)
 
-[Video - showing how to crete project file (mpx only) from Salesforce Object; do OAuth to the java application project and posted the file back to Salesforce Record] () 
+[Video - showing how to crete project file (mpx only) from Salesforce Object; do OAuth to the java application project and posted the file back to Salesforce Record] (http://www.screencast.com/t/PKPU7fTq) 
 
 
 ### Supported API
