@@ -8,13 +8,37 @@
 
 ## Getting Started
 
-* mvn package
-* mvn jetty:run
+	* mvn clean package
+
+__under jetty configuration, we can add our OAUTH_CLIENT_KEY and OAUTH_CLIENT_SECRET into the
+system properties (see pom.xml -- jetty plugin configuration); By default the application will look into system environment variable 
+if those environment cannot be found then it will look into system properties. This is usefull for development
+purposes without having to setup the OS environment variables__
+
+	* mvn jetty:run
 
 OR
 
-* java -jar target/dependency/jetty-runner.jar target/mppconverter.war
+	* java -jar target/dependency/jetty-runner.jar target/mppconverter.war
+
+### To Push into Heroku
+
+	* heroku login
+	
+	__setup a new instance for this java app__
+	
+	* heroku create
+	
+	* heroku add:config OAUTH_CLIENT_KEY <sfdc customer key>
+	
+	  heroku add:config OAUTH_CLIENT_SECRET <sfdc customer secret>
+	  
+	* git push heroku master
  
+
+## Heroku Instance (currently)
+
+Live working instance [here](https://glacial-bayou-4282.herokuapp.com) 
 
 ## Overview
 
@@ -40,6 +64,15 @@ This application is built for [cloudspokes challenge](http://www.cloudspokes.com
 >
 > Description : Based on the JSON Payload, construct and generate the Project File (.mpx). __This version, the generated file are stored in Server; there are no produces output of file yet. 
 
+### Convertion Page From Salesforce
+
+> URL : */secure/creatempx/{projectid}*
+>
+> Method : **GET** 
+>
+> Description : This page will receive project ID from Salesforce and will create OAUTH authentication and Retrieve Project Information from Salesforce. 
+After the project information retrieved, then it will create MPX file and push them back into Salesforce -- into 
+project attachment record (based on the passed projectid)
 
 
 

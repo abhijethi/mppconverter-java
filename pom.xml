@@ -222,6 +222,7 @@
 				<version>${jetty-plugin.version}</version>
 				<configuration>
 					<reload>manual</reload>
+					<!-- This could be better if taken from outside file -->
 					<systemProperties>
 						<systemProperty>
 							<name>OAUTH_CLIENT_KEY</name>
@@ -232,6 +233,7 @@
 							<value>[put_customer_secret_here_from_sfdc]</value>
 						</systemProperty>
 					</systemProperties>
+					<!-- end property file -->
 				</configuration>
 			</plugin>
 		</plugins>
