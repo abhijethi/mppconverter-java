@@ -5,9 +5,11 @@ import java.util.List;
 
 import net.sf.mpxj.ProjectFile;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class Project implements java.io.Serializable{
 	static Logger logger = LoggerFactory.getLogger(Project.class); 
 	/**
