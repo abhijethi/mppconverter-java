@@ -22,9 +22,9 @@
 <![endif]-->
 
     <style>
-    		.topcontainer {
-    			margin-top : 50px;
-    		}
+            .topcontainer {
+                margin-top : 50px;
+            }
     </style>
 </head>
 
@@ -47,32 +47,34 @@
 </div>
 
 <div class="container topcontainer" ng-app="mpp">
-	<div class="row-fluid">
-		<h1>${subtitle}</h1>
-
-		<c:if test="${uploaded_file != null}">
-			<h4>You have uploaded ${uploaded_file }</h4>
-		</c:if>
-
-		<c:if test="${project_info != null}">
-			<h4>Project ::  ${project_info }</h4>
-		</c:if>
-
-		<c:url value="/save" var="savefiles" />
-		<form:form method="post" action="${savefiles }"
-			modelattribute="uploadform" enctype="multipart/form-data">
-			<label>Select File to Upload</label>
-			<input type="file" name="file" />
-			<input type="submit" value="submit" class="btn btn-primary" />
-		</form:form>
+    <div class="row-fluid">
+        <h1>${subtitle}</h1>
         <hr />
 
-        <c:url value="/secure/project" var="gosecure" />
-        <a href="${gosecure}" class="btn btn-info">
-            <i class="icon-rocket icon-large"></i>
-            Go to Salesforce
+        <c:if test="${error != null}">
+        <div class="alert alert-error">
+            <i class="icon-thumbs-down icon-2x pull-left"></i> ${error}
+        </div>
+        </c:if>
+
+        <c:if test="${success != null}">
+        <div class="alert alert-success">
+            <i class="icon-thumbs-up icon-2x pull-left"></i> ${success}
+        </div>
+        </c:if>
+
+        <c:if test="${attachmenturl != null}">
+        <a href="${attachmenturl}" class="btn btn-warning">
+            <i class="icon-external-link icon-2x icon-white"></i>
+            See the File Record in Salesforce
         </a>
-	</div>
+        </c:if>
+
+        <a href="${returnURL}" class="btn btn-warning">
+            <i class="icon-external-link icon-2x icon-white"></i>
+            Back to Project Page
+        </a>
+    </div>
 </div>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

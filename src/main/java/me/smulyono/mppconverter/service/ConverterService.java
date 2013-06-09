@@ -47,17 +47,21 @@ public class ConverterService {
 		ProjectFile project = new ProjectFile();
 
 		// Resource 
-		for (me.smulyono.mppconverter.model.Resource res : result.getResources()){
-			Resource newresource = project.addResource();
-			newresource.setName(res.getName());
+		if (result.getResources() != null){
+			for (me.smulyono.mppconverter.model.Resource res : result.getResources()){
+				Resource newresource = project.addResource();
+				newresource.setName(res.getName());
+			}
 		}
 		
 		// Task
-		for (me.smulyono.mppconverter.model.Task tsk : result.getTasks()){
-			Task newtask= project.addTask();
-			newtask.setName(tsk.getName());
-			newtask.setActive(tsk.isActive());
-			newtask.setMilestone(tsk.isMilestone());
+		if (result.getTasks() != null){
+			for (me.smulyono.mppconverter.model.Task tsk : result.getTasks()){
+				Task newtask= project.addTask();
+				newtask.setName(tsk.getName());
+				newtask.setActive(tsk.isActive());
+				newtask.setMilestone(tsk.isMilestone());
+			}
 		}
 		
 		// Pass back the file
@@ -66,4 +70,5 @@ public class ConverterService {
 		writer.write(project, newfile);
 		return newfile;
 	}
+	
 }
