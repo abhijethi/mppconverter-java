@@ -48,6 +48,8 @@ Simple Java / Spring MVC application to convert MPP/X files into JSON. This java
 
 This application is built for [cloudspokes challenge](http://www.cloudspokes.com/challenges/2287/), where this application will act as REST endpoint. The client (Force.com) can submit POST request to either generate JSON file or MPP/X file. 
 
+Overall Architecture View [https://www.lucidchart.com/publicSegments/view/51b4e4a5-dae4-47c1-9123-79770a008629/image.png](https://www.lucidchart.com/publicSegments/view/51b4e4a5-dae4-47c1-9123-79770a008629/image.png)
+
 ## Demo
 
 [Video - showing how to import project from Salesforce which communicate to this Java Application](http://www.screencast.com/t/zOxUZ65dM1dN)
