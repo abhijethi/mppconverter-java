@@ -1,6 +1,8 @@
 package me.smulyono.mppconverter.model;
 
 import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 public class Task implements java.io.Serializable {
 	/**
@@ -108,8 +110,10 @@ public class Task implements java.io.Serializable {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-	public String setStartDate(String StartDate){
-		this.StartDate = StartDate;
+	public String setStartDate(Date StartDate){
+		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		String testDateString = df.format(StartDate);
+		this.StartDate = testDateString;
 	}
 	public String getStartDate(){
 		return StartDate;
