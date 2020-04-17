@@ -70,7 +70,7 @@ public class Project implements java.io.Serializable{
 	private void fillProjectInfo(ProjectFile project){
 		this.setProjectTitle(project.getProjectHeader().getProjectTitle());
 		this.setPublisher(project.getProjectHeader().getAuthor());
-		this.setStartDate(project.getStartDate());
+		this.setStartDate(project.getProjectHeader().getStartDate());
 	}
 	
 	public String getProjectTitle() {
