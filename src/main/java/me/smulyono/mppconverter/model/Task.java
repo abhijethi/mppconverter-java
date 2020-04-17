@@ -108,7 +108,7 @@ public class Task implements java.io.Serializable {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-	public String setStartDate(Date StartDate){
+	public String setStartDate(String StartDate){
 		this.StartDate = StartDate;
 	}
 	public String getStartDate(){
