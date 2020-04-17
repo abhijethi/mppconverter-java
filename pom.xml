@@ -125,7 +125,7 @@
 		<dependency>
 		    <groupId>net.sf.mpxj</groupId>
 		    <artifactId>mpxj</artifactId>
-		    <version>5.5.5</version>
+		    <version>4.7.4</version>
 		</dependency>
 
 		<!-- Apache Commons Upload -->
