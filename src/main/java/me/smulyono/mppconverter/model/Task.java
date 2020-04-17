@@ -14,6 +14,7 @@ public class Task implements java.io.Serializable {
 	private boolean milestone;
 	private boolean active;
 	private Number percentageComplete;
+	public String StrtDate;
 	public Task(){}
 	
 	public Task(net.sf.mpxj.Task task){
@@ -23,6 +24,7 @@ public class Task implements java.io.Serializable {
 		this.setMilestone(task.getMilestone());
 		this.setActive(task.getActive());
 		this.setPercentageComplete(task.getPercentageComplete());
+		this.setStartDate(task.getStartDate());
 	}
 	
 	/**
@@ -104,6 +106,12 @@ public class Task implements java.io.Serializable {
 	 */
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+	public String setStartDate(String StartDate){
+		this.setStartDate = StartDate;
+	}
+	public String getStartDate(){
+		return StartDate;
 	}
 	
 }
