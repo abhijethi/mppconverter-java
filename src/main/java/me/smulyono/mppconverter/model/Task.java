@@ -24,7 +24,7 @@ public class Task implements java.io.Serializable {
 		this.setMilestone(task.getMilestone());
 		this.setActive(task.getActive());
 		this.setPercentageComplete(task.getPercentageComplete());
-		this.setStartDate(task.getStartDate());
+		this.setStartDate(task.getActualWork());
 	}
 	
 	/**
