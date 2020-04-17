@@ -1,5 +1,6 @@
 package me.smulyono.mppconverter.model;
 
+import java.util.Date;
 
 public class Task implements java.io.Serializable {
 	/**
@@ -14,7 +15,7 @@ public class Task implements java.io.Serializable {
 	private boolean milestone;
 	private boolean active;
 	private Number percentageComplete;
-	public String StartDate;
+	public Date StartDate;
 	public Task(){}
 	
 	public Task(net.sf.mpxj.Task task){
@@ -24,7 +25,7 @@ public class Task implements java.io.Serializable {
 		this.setMilestone(task.getMilestone());
 		this.setActive(task.getActive());
 		this.setPercentageComplete(task.getPercentageComplete());
-		this.setStartDate(task.getActualWork());
+		this.setStartDate(task.getActualStart());
 	}
 	
 	/**
@@ -107,7 +108,7 @@ public class Task implements java.io.Serializable {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-	public String setStartDate(String StartDate){
+	public String setStartDate(Date StartDate){
 		this.StartDate = StartDate;
 	}
 	public String getStartDate(){
