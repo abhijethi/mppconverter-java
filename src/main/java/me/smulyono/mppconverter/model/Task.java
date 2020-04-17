@@ -1,9 +1,5 @@
 package me.smulyono.mppconverter.model;
 
-import java.util.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-
 public class Task implements java.io.Serializable {
 	/**
 	 * 
