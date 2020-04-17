@@ -111,9 +111,11 @@ public class Task implements java.io.Serializable {
 		this.active = active;
 	}
 	public void setStartDate(Date StartDate){
-		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-		String testDateString = df.format(StartDate);
-		this.StartDate = testDateString;
+		if(StartDate != null){
+			DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+			String testDateString = df.format(StartDate);
+			this.StartDate = testDateString;
+		}
 		
 	}
 	public String getStartDate(){
