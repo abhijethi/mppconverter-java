@@ -9,6 +9,10 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class Project implements java.io.Serializable{
 	static Logger logger = LoggerFactory.getLogger(Project.class); 
@@ -18,6 +22,7 @@ public class Project implements java.io.Serializable{
 	private static final long serialVersionUID = -4397853852371867561L;
 	private String projectTitle;
 	private String publisher;
+	public String StartDate;
 	private List<Resource> resources;
 	private List<Task> tasks;
 	private List<Assignment> assignments;
@@ -65,6 +70,7 @@ public class Project implements java.io.Serializable{
 	private void fillProjectInfo(ProjectFile project){
 		this.setProjectTitle(project.getProjectHeader().getProjectTitle());
 		this.setPublisher(project.getProjectHeader().getAuthor());
+		this.setStartDate(project.getStartDate());
 	}
 	
 	public String getProjectTitle() {
@@ -81,6 +87,15 @@ public class Project implements java.io.Serializable{
 
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
+	}
+	
+	public string getStartDate(){
+		return StartDate;
+	}
+	public string setStartDate(Date StartDate){
+		if(StartDate!=null){
+			this.StartDate = convertStringToDate(StartDate);
+		}
 	}
 
 	/**
@@ -123,6 +138,21 @@ public class Project implements java.io.Serializable{
 	 */
 	public void setAssignments(List<Assignment> assignments) {
 		this.assignments = assignments;
+	}
+	
+	public String convertStringToDate(Date indate)
+	{
+	   String dateString = null;
+	   SimpleDateFormat sdfr = new SimpleDateFormat("dd/MMM/yyyy");
+	   /*you can also use DateFormat reference instead of SimpleDateFormat 
+	    * like this: DateFormat df = new SimpleDateFormat("dd/MMM/yyyy");
+	    */
+	   try{
+		dateString = sdfr.format( indate );
+	   }catch (Exception ex ){
+		System.out.println(ex);
+	   }
+	   return dateString;
 	}
 
 }
