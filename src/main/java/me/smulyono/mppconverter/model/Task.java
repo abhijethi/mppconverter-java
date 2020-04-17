@@ -15,7 +15,7 @@ public class Task implements java.io.Serializable {
 	private boolean milestone;
 	private boolean active;
 	private Number percentageComplete;
-	public Date StartDate;
+	public String StartDate;
 	public Task(){}
 	
 	public Task(net.sf.mpxj.Task task){
