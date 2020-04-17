@@ -89,10 +89,10 @@ public class Project implements java.io.Serializable{
 		this.publisher = publisher;
 	}
 	
-	public string getStartDate(){
+	public String getStartDate(){
 		return StartDate;
 	}
-	public string setStartDate(Date StartDate){
+	public String setStartDate(Date StartDate){
 		if(StartDate!=null){
 			this.StartDate = convertStringToDate(StartDate);
 		}
