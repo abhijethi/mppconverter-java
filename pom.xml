@@ -123,9 +123,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>net.sourceforge</groupId>
-			<artifactId>mpxj</artifactId>
-			<version>4.7.4</version>
+		    <groupId>net.sf.mpxj</groupId>
+		    <artifactId>mpxj</artifactId>
+		    <version>7.8.1</version>
 		</dependency>
 
 		<!-- Apache Commons Upload -->
