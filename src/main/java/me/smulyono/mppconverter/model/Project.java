@@ -92,9 +92,9 @@ public class Project implements java.io.Serializable{
 	public String getStartDate(){
 		return StartDate;
 	}
-	public String setStartDate(Date StartDate){
+	public void setStartDate(Date stdDate){
 		if(StartDate!=null){
-			this.StartDate = convertStringToDate(StartDate);
+			this.StartDate = convertStringToDate(stdDate);
 		}
 	}
 
